@@ -1,0 +1,99 @@
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    text-align: center;
+}
+
+h1 {
+    margin: 25px 0;
+    letter-spacing: 1px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+
+/* BAR CONTAINER */
+
+.bar {
+    width: 100%;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 12px 0;
+}
+
+
+/* BAR FILL BASE */
+
+.bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    transition: width 1s ease, background 0.6s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+
+/* WARNA PARAMETER */
+
+.pressure {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    box-shadow: 0 0 12px rgba(0, 114, 255, 0.9);
+}
+
+.reactor {
+    background: linear-gradient(90deg, #ff9f43, #ff6f00);
+    box-shadow: 0 0 12px rgba(255, 159, 67, 0.9);
+}
+
+.soec {
+    background: linear-gradient(90deg, #ff4e50, #f00000);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.9);
+}
+
+.ratio {
+    background: linear-gradient(90deg, #9b59b6, #8e44ad);
+    box-shadow: 0 0 12px rgba(155, 89, 182, 0.9);
+}
+
+.catalyst {
+    background: linear-gradient(90deg, #2ecc71, #27ae60);
+    box-shadow: 0 0 12px rgba(46, 204, 113, 0.9);
+}
+
+small {
+    opacity: 0.8;
+}

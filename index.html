@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Reactor Monitoring System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Smart Reactor Monitoring System</h1>
+
+    <div class="dashboard">
+
+        <!-- TEKANAN -->
+        <div class="card">
+            <h2>Tekanan Reaktor</h2>
+            <p><span id="pressureVal">0</span> bar</p>
+            <div class="bar">
+                <div id="pressureBar" class="bar-fill pressure"></div>
+            </div>
+            <small>Rentang Operasi: 50 – 80 bar</small>
+        </div>
+
+        <!-- SUHU REAKTOR -->
+        <div class="card">
+            <h2>Suhu Reaktor</h2>
+            <p><span id="reactorTempVal">0</span> °C</p>
+            <div class="bar">
+                <div id="reactorTempBar" class="bar-fill reactor"></div>
+            </div>
+            <small>Rentang Operasi: 200 – 250 °C</small>
+        </div>
+
+        <!-- SUHU SOEC -->
+        <div class="card">
+            <h2>Suhu SOEC</h2>
+            <p><span id="soecTempVal">0</span> °C</p>
+            <div class="bar">
+                <div id="soecTempBar" class="bar-fill soec"></div>
+            </div>
+            <small>Rentang Operasi: 700 – 900 °C</small>
+        </div>
+
+        <!-- RASIO H2 : CO2 -->
+        <div class="card">
+            <h2>Rasio H₂ : CO₂</h2>
+            <p><span id="ratioVal">0</span></p>
+            <div class="bar">
+                <div id="ratioBar" class="bar-fill ratio"></div>
+            </div>
+            <small>Optimal: 2.8 – 3.2</small>
+        </div>
+
+        <!-- KATALIS -->
+        <div class="card">
+            <h2>Penambahan Katalis</h2>
+            <p><span id="catalystVal">0</span> mg</p>
+            <div class="bar">
+                <div id="catalystBar" class="bar-fill catalyst"></div>
+            </div>
+            <small>Optimal: 720 mg (600 – 1800 mg)</small>
+        </div>
+
+    </div>
+
+    <!-- LINK JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
