@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Grafik Profil Reaktor Metanol</title>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            font-family: Arial, sans-serif;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+        
+        .chart-box {
+            background-color: #020617;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+        }
+        
+        canvas {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Grafik Profil Reaktor Metanol</h1>
+
+        <!-- Grafik Komposisi -->
+        <div class="chart-box">
+            <h2>Profil Komposisi Sepanjang Reaktor</h2>
+            <canvas id="compositionChart"></canvas>
+        </div>
+
+        <!-- Grafik Suhu -->
+        <div class="chart-box">
+            <h2>Profil Suhu Sepanjang Reaktor</h2>
+            <canvas id="temperatureChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // =========================
+        // DATA PANJANG REAKTOR (m)
+        // =========================
+        const reactorLength = [0, 1, 2, 3, 4, 5, 6, 7];
+
+        // =========================
+        // DATA KOMPOSISI (Fraksi Mol)
+        // =========================
+        const CO2 = [0.30, 0.28, 0.25, 0.21, 0.18, 0.14, 0.11, 0.08];
+        const H2 = [0.60, 0.56, 0.52, 0.48, 0.43, 0.38, 0.33, 0.28];
+        const CH3OH = [0.00, 0.03, 0.07, 0.12, 0.17, 0.23, 0.28, 0.34];
+
+        // =========================
+        // GRAFIK KOMPOSISI
+        // =========================
+        new Chart(document.getElementById('compositionChart'), {
+            type: 'line',
+            data: {
+                labels: reactorLength,
+                datasets: [{
+                    label: 'CO₂',
+                    data: CO2,
+                    borderColor: '#f87171',
+                    borderWidth: 2,
+                    tension: 0.4
+                }, {
+                    label: 'H₂',
+                    data: H2,
+                    borderColor: '#60a5fa',
+                    borderWidth: 2,
+                    tension: 0.4
+                }, {
+                    label: 'CH₃OH',
+                    data: CH3OH,
+                    borderColor: '#4ade80',
+                    borderWidth: 2,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#e5e7eb'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Panjang Reaktor (m)',
+                            color: '#e5e7eb'
+                        },
+                        ticks: {
+                            color: '#e5e7eb'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Fraksi Mol',
+                            color: '#e5e7eb'
+                        },
+                        min: 0,
+                        max: 0.7,
+                        ticks: {
+                            color: '#e5e7eb'
+                        }
+                    }
+                }
+            }
+        });
+
+        // =========================
+        // DATA SUHU (°C)
+        // Reaksi eksotermik, aman < 280°C
+        // =========================
+        const temperature = [220, 228, 235, 243, 250, 258, 265, 270];
+
+        // =========================
+        // GRAFIK SUHU
+        // =========================
+        new Chart(document.getElementById('temperatureChart'), {
+            type: 'line',
+            data: {
+                labels: reactorLength,
+                datasets: [{
+                    label: 'Suhu Reaktor (°C)',
+                    data: temperature,
+                    borderColor: '#facc15',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: false
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#e5e7eb'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Panjang Reaktor (m)',
+                            color: '#e5e7eb'
+                        },
+                        ticks: {
+                            color: '#e5e7eb'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Suhu (°C)',
+                            color: '#e5e7eb'
+                        },
+                        min: 200,
+                        max: 280,
+                        ticks: {
+                            color: '#e5e7eb'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
